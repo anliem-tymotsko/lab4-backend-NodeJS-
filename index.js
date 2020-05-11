@@ -25,9 +25,7 @@ app.use(bodyparser.urlencoded({limit: '10mb', extended: true}));
 
 app.set('port', process.env.port || 3000);
 app.use(bodyparser.json());
-app.get('/', (req,res)=>{
-    res.send("hello");
-})
+
 
 app.post('/register', (req, res) => {
     console.log(req.body);
@@ -60,7 +58,7 @@ console.log(user)
 let secret = 'some_secret';
 
 
-app.post('/sign', (req, res) => {
+app.post('/', (req, res) => {
     var userData = {
         "email": req.body.email,
         "password": req.body.password
